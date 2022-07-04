@@ -1,3 +1,4 @@
+"""glob glob glob."""
 import glob
 import os
 
@@ -17,7 +18,7 @@ def list_dir(path, ext='*.*', recursive=False) -> list:
     os.chdir(path)
     for file in glob.iglob(ext):
         work_list.append(file)
-    
+
     return work_list
 
 
@@ -31,12 +32,12 @@ def get_file_size(file, out='kb'):
     Returns:
         _type_: _description_
     """
-    if out == 'kb': 
+    if out == 'kb':
         out_div = 1024
         ext = 'KB'
-    elif out == 'mb': 
+    elif out == 'mb':
         out_div = 1024*1024
         ext = 'MB'
 
-        
+
     return f'{file} : {round(os.stat(file).st_size/out_div,2)}{ext}'
