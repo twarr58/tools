@@ -23,7 +23,7 @@ def list_dir(path, ext='*.*', recursive=False) -> list:
 def get_file_size(file, out='kb'):
     if out == 'kb': out_div = 1024; ext = 'KB'
     elif out == 'mb': out_div = 1024*1024; ext = 'MB'
-    return f'{file} : {round(os.stat(file).st_size/out_div,2)}{ext}}'
+    return f'{file} : {round(os.stat(file).st_size/out_div,2)}{ext}'
         
 # print(get_file_stat('/home/twarr58/.bash_history'))
 for file in list_dir('/usr/bin', recursive=True):
