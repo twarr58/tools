@@ -18,7 +18,7 @@ def list_dir(path, ext='*.*', recursive=False) -> list:
     os.chdir(path)
     for file in glob.iglob(ext):
         work_list.append(file)
-
+    del recursive
     return work_list
 
 
