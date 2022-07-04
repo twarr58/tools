@@ -22,11 +22,21 @@ def list_dir(path, ext='*.*', recursive=False) -> list:
 
 
 def get_file_size(file, out='kb'):
+    """_summary_
+
+    Args:
+        file (_type_): _description_
+        out (str, optional): _description_. Defaults to 'kb'.
+
+    Returns:
+        _type_: _description_
+    """
     if out == 'kb': 
         out_div = 1024
         ext = 'KB'
     elif out == 'mb': 
         out_div = 1024*1024
         ext = 'MB'
+
         
     return f'{file} : {round(os.stat(file).st_size/out_div,2)}{ext}'
