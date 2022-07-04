@@ -1,6 +1,6 @@
 import glob
 import os
-import sys
+
 
 def list_dir(path, ext='*.*', recursive=False) -> list:
     """_summary_
@@ -15,18 +15,18 @@ def list_dir(path, ext='*.*', recursive=False) -> list:
     """
     work_list = []
     os.chdir(path)
-    # print(os.getcwd())
     for file in glob.iglob(ext):
         work_list.append(file)
+    
     return work_list
 
+
 def get_file_size(file, out='kb'):
-    if out == 'kb': out_div = 1024; ext = 'KB'
-    elif out == 'mb': out_div = 1024*1024; ext = 'MB'
-    return f'{file} : {round(os.stat(file).st_size/out_div,2)}{ext}}'
+    if out == 'kb': 
+        out_div = 1024
+        ext = 'KB'
+    elif out == 'mb': 
+        out_div = 1024*1024
+        ext = 'MB'
         
-# print(get_file_stat('/home/twarr58/.bash_history'))
-for file in list_dir('/usr/bin', recursive=True):
-    print(get_file_size(file))
-
-
+    return f'{file} : {round(os.stat(file).st_size/out_div,2)}{ext}'
